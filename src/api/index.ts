@@ -12,7 +12,7 @@ export async function getVideoInfo(
     ).then((data) => data.json());
 
     if (req.code != 200) {
-        console.error(`[api] error with request! (${req.code})`, req.res);
+        console.warn(`[api] error with request! (${req.code})`, req.res);
     }
 
     return req;

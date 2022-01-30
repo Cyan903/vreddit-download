@@ -1,21 +1,41 @@
 <template>
     <div>
         <h2>
-            Viewing info for <b>/r/{{ sub }}/{{ id }}</b>
+            Viewing info for <b>/r/{{ sub }}/{{ postid }}</b>
         </h2>
+
+        <Error
+            v-if="requestError"
+            :code="videoInfo.code"
+            :message="videoInfo.res"
+        />
+        <Info v-else :vidData="videoInfo" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getVideoInfo } from "../api/index";
+import Error from "@/components/download/error.vue";
+import Info from "@/components/download/info.vue";
 
 export default defineComponent({
     name: "Download",
+    components: { Error, Info },
     data() {
         return {
-            id: this.$route.params.id,
-            sub: this.$route.params.subreddit,
+            postid: this.$route.params.id.toString(),
+            sub: this.$route.params.subreddit.toString(),
+            videoInfo: {},
+            requestError: false,
         };
+    },
+
+    async mounted() {
+        const res = await getVideoInfo(this.sub, this.postid);
+
+        this.requestError = res.code != 200;
+        this.videoInfo = res;
     },
 });
 </script>
