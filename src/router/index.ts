@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import Download from "../views/Download.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "Home",
         component: Home,
+    },
+    {
+        path: "/download/:subreddit/:id",
+        name: "Download",
+        component: Download,
     },
     {
         path: "/about",
