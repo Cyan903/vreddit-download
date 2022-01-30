@@ -10,7 +10,7 @@
         <h5 v-if="link.length > 10">{{ redditURL }}</h5>
 
         <input type="text" v-model="link" placeholder="Enter a reddit link" />
-        <Button title="Download" @click="log" :disabled="!validURL" />
+        <Button title="Download" @click="redirect" :disabled="!validURL" />
     </div>
 </template>
 
@@ -31,8 +31,12 @@ export default defineComponent({
     },
 
     methods: {
-        log() {
-            this.$router.push("about");
+        redirect() {
+            if (this.validURL) {
+                this.$router.push(
+                    `/download/${this.redditURL[0]}/${this.redditURL[1]}`
+                );
+            }
         },
     },
 
@@ -62,7 +66,7 @@ export default defineComponent({
 
         validURL(): boolean {
             return Array.isArray(this.redditURL);
-        }
+        },
     },
 });
 </script>
