@@ -3,11 +3,17 @@
         <div>
             <h4>Preview</h4>
             <video controls v-if="previewExist" :src="preview"></video>
+            <h4>{{ hasAudio }}</h4>
         </div>
 
         <div>
             <InfoFilter @filterQuality="filterQuality" />
-            <InfoDownload :videos="videos" @setPreview="setPreview" />
+            <InfoDownload
+                :videos="videos"
+                :audio="vidData?.res?.audio"
+                :id="vidData?.res?.id"
+                @setPreview="setPreview"
+            />
         </div>
 
         <Button title="Go back..." @click="this.$router.go(-1)" />
@@ -71,6 +77,10 @@ export default defineComponent({
 
         previewExist(): boolean {
             return this.preview != "";
+        },
+
+        hasAudio(): string {
+            return this.vidData?.res?.audio ? "Has audio" : "No audio";
         },
     },
 

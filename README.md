@@ -1,4 +1,4 @@
-# reddit-save-frontend
+# vreddit-download
 
 ## Project setup
 ```

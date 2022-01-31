@@ -2,20 +2,23 @@
     <div>
         <h4>Download links</h4>
         <div>
-            <button @click="updateQuality(true)">
-                Download Highest Quality
-            </button>
-            <button @click="updateQuality()">All Qualities</button>
+            <Button
+                @click="updateQuality(true)"
+                title="Download Highest Quality"
+            />
+            <Button @click="updateQuality()" title="All Qualities" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Button from "@/components/Button.vue";
 
 export default defineComponent({
     name: "InfoFilter",
     emits: ["filterQuality"],
+    components: { Button },
 
     methods: {
         updateQuality(best = false) {

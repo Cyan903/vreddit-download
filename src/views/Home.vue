@@ -6,12 +6,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import LinkInput from "@/components/home/LinkInput.vue"; // @ is an alias to /src
+import config from "@/config.json";
+import LinkInput from "@/components/home/LinkInput.vue";
 
 export default defineComponent({
     name: "Home",
-    components: {
-        LinkInput,
+    components: { LinkInput },
+    mounted() {
+        document.title = `Home | ${config.title}`;
     },
 });
 </script>

@@ -16,6 +16,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getVideoInfo } from "../api/index";
+import config from "@/config.json";
 import Error from "@/components/download/Error.vue";
 import Info from "@/components/download/Info.vue";
 
@@ -36,6 +37,8 @@ export default defineComponent({
 
         this.requestError = res.code != 200;
         this.videoInfo = res;
+
+        document.title = `Downloading from /r/${this.sub} | ${config.title}`;
     },
 });
 </script>

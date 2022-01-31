@@ -7,12 +7,16 @@
                 <b>Framerate: </b>{{ quality.framerate }}
             </div>
             <div>
-                <button>Download</button>
+                <Button
+                    :title="`Download (${quality.width}x${quality.height})`"
+                    @click="download(quality)"
+                />
             </div>
             <div>
-                <button @click="setPreview(quality.url)">
-                    Preview (no audio)
-                </button>
+                <Button
+                    @click="setPreview(quality.url)"
+                    title="Preview (no audio)"
+                />
             </div>
         </li>
     </ul>
@@ -20,14 +24,33 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { Video } from "@/api/types/r";
+import { download as DL } from "@/api/index";
+import Button from "@/components/Button.vue";
 
 export default defineComponent({
     name: "InfoDownloads",
-    props: ["videos"],
+    props: ["videos", "audio", "id"],
     emits: ["setPreview"],
+    components: { Button },
+
     methods: {
         setPreview(name: string) {
             this.$emit("setPreview", name);
+        },
+
+        download(quality: Video) {
+            if (this.audio) {
+                const url = quality.url.replace(
+                    `https://v.redd.it/${this.id}/`,
+                    ""
+                );
+
+                window.open(DL(this.id, url));
+                return;
+            }
+
+            window.open(quality.url);
         },
     },
 });

@@ -1,7 +1,7 @@
 import { Error } from "./types/error";
 import { Main } from "./types/main";
 import { Response } from "./types/r";
-import config from "./config.json";
+import config from "@/config.json";
 
 export async function getVideoInfo(
     subreddit: string,
@@ -20,4 +20,8 @@ export async function getVideoInfo(
 
 export async function getHome(): Promise<Main> {
     return await fetch(config.api).then((data) => data.json());
+}
+
+export function download(postid: string, quality: string): string {
+    return `${config.api}/dl/${postid}/${quality}`;
 }
