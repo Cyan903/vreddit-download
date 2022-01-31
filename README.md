@@ -15,11 +15,6 @@ pnpm run serve
 pnpm run build
 ```
 
-### Run your unit tests
-```
-pnpm run test:unit
-```
-
 ### Lints and fixes files
 ```
 pnpm run lint
