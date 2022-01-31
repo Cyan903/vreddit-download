@@ -10,10 +10,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Button from "@/components/button.vue";
+import Button from "@/components/Button.vue";
 
 export default defineComponent({
-    name: "DownloadError",
+    name: "Error",
     components: { Button },
     props: {
         code: Number,

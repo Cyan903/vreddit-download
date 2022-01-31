@@ -10,8 +10,8 @@ export interface Res {
 }
 
 export interface Video {
-    height: string;
-    width: string;
+    height: number;
+    width: number;
     framerate: string;
     url: string;
 }

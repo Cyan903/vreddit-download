@@ -16,8 +16,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getVideoInfo } from "../api/index";
-import Error from "@/components/download/error.vue";
-import Info from "@/components/download/info.vue";
+import Error from "@/components/download/Error.vue";
+import Info from "@/components/download/Info.vue";
 
 export default defineComponent({
     name: "Download",
