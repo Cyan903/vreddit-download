@@ -1,4 +1,8 @@
 {
     "title": "vreddit-download",
-    "api": "http://localhost:3000"
+    "api": "http://localhost:3000",
+    "links": {
+        "frontend": "https://github.com/CyanPiano/vreddit-download",
+        "api": "https://github.com/CyanPiano/vreddit-download-api"
+    }
 }

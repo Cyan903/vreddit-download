@@ -1,5 +1,7 @@
 <template>
-    <button :class="[...(classes?.length ? classes.split(' ') : ''), 'button']">{{ title }}</button>
+    <button :class="[...(classes?.length ? classes.split(' ') : ''), 'button']">
+        {{ title }}
+    </button>
 </template>
 
 <script lang="ts">
@@ -13,4 +15,3 @@ export default defineComponent({
     },
 });
 </script>
-

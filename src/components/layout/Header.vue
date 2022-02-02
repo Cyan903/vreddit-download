@@ -22,6 +22,9 @@
             <div class="navbar-start">
                 <router-link class="navbar-item" to="/">Home</router-link>
                 <router-link class="navbar-item" to="/about">About</router-link>
+                <router-link class="navbar-item" to="/help">
+                    How to Use
+                </router-link>
             </div>
 
             <div class="navbar-end">
@@ -29,16 +32,36 @@
                     <a class="navbar-link">Github</a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">Frontend</a>
-                        <a class="navbar-item">API</a>
+                        <a :href="config.frontend" class="navbar-item"
+                            >Frontend</a
+                        >
+                        <a :href="config.api" class="navbar-item">API</a>
                         <hr class="navbar-divider" />
-                        <a href="" class="navbar-item">ffmpeg.wasm</a>
+                        <a
+                            href="https://github.com/ffmpegwasm/ffmpeg.wasm"
+                            class="navbar-item"
+                            >ffmpeg.wasm</a
+                        >
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import config from "@/config.json";
+
+export default defineComponent({
+    name: "Header",
+    data() {
+        return {
+            config: config.links,
+        };
+    },
+});
+</script>
 
 <style lang="sass" scoped>
 @import "./src/sass/logo.sass"
