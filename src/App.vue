@@ -1,9 +1,11 @@
 <template>
     <Header />
 
-    <div class="hero is-medium">
-        <div class="container is-widescreen">
-            <router-view />
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container is-widescreen">
+                <router-view />
+            </div>
         </div>
     </div>
 </template>

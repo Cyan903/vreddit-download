@@ -1,17 +1,13 @@
 <template>
-    <div>
-        <h2>Enter video links...</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            aspernatur neque tempora deleniti atque, quos laborum accusantium a
-            officia reiciendis?
-        </p>
-
-        <h5 v-if="link.length > 10">{{ redditURL }}</h5>
-
-        <input type="text" v-model="link" placeholder="Enter a reddit link" />
-        <Button title="Download" @click="redirect" :disabled="!validURL" />
+    <div class="columns">
+        <input
+            class="column is-full"
+            type="text"
+            v-model="link"
+            placeholder="Enter a reddit link"
+        />
     </div>
+    <Button title="Download" @click="redirect" :disabled="!validURL" />
 </template>
 
 <script lang="ts">

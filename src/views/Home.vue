@@ -1,5 +1,15 @@
 <template>
-    <div>
+    <div class="hero is-medium">
+        <div class="section">
+            <div class="logo">
+                <h2>vreddit<b>download</b></h2>
+            </div>
+
+            <p class="has-text-centered">
+                Download videos from <code>v.redd.it</code> with audio.
+            </p>
+        </div>
+
         <LinkInput />
     </div>
 </template>
@@ -17,3 +27,14 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="sass" scoped>
+@import "./src/sass/logo.sass"
+
+.logo
+    font-size: 2em
+    text-align: center
+
+p
+    padding-top: 30px
+</style>

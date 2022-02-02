@@ -1,5 +1,5 @@
 <template>
-    <button class="button">{{ title }}</button>
+    <button :class="[...(classes?.length ? classes.split(' ') : ''), 'button']">{{ title }}</button>
 </template>
 
 <script lang="ts">
@@ -9,12 +9,8 @@ export default defineComponent({
     name: "Button",
     props: {
         title: String,
+        classes: Array,
     },
 });
 </script>
 
-<style scoped lang="scss">
-button {
-    background-color: green;
-}
-</style>
