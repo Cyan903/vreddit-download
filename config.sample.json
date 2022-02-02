@@ -1,0 +1,9 @@
+{
+    "title": "vreddit-download", // App title.
+    "api": "http://localhost:3000", // API location (for CORS).
+    // Navbar links. In case the repo name changes.
+    "links": {
+        "frontend": "https://github.com/CyanPiano/vreddit-download",
+        "api": "https://github.com/CyanPiano/vreddit-download-api"
+    }
+}

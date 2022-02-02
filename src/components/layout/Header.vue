@@ -64,9 +64,7 @@ import config from "@/config.json";
 export default defineComponent({
     name: "Header",
     data() {
-        return {
-            config: config.links,
-        };
+        return { config: config.links };
     },
 });
 </script>
