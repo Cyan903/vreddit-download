@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h4>Download links</h4>
+    <div class="has-text-centered">
+        <h2>Download links</h2>
         <div>
             <Button
                 @click="updateQuality(true)"
@@ -8,6 +8,7 @@
             />
             <Button @click="updateQuality()" title="All Qualities" />
         </div>
+        <hr />
     </div>
 </template>
 
@@ -27,3 +28,10 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="sass" scoped>
+h2
+    padding: 1rem
+    font-weight: bolder
+    font-size: 1.5rem
+</style>

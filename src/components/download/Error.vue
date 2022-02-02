@@ -1,10 +1,19 @@
 <template>
-    <div>
-        <h2>
-            Error: <b>{{ code }}</b>
-        </h2>
-        <p>{{ message }}</p>
-        <Button title="Go back..." @click="this.$router.go(-1)" />
+    <div class="container">
+        <div class="section">
+            <h2 class="has-text-centered">
+                Error: <b>{{ code }}</b>
+            </h2>
+            <p class="has-text-centered">{{ message }}</p>
+        </div>
+
+        <div class="section">
+            <Button
+                classes="column is-full"
+                title="Go back..."
+                @click="this.$router.go(-1)"
+            />
+        </div>
     </div>
 </template>
 
@@ -21,3 +30,12 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="sass" scoped>
+h2
+    font-size: 4rem
+    padding-top: 40px
+
+p
+    font-size: 1.5rem
+</style>

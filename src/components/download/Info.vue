@@ -1,12 +1,12 @@
 <template>
-    <div v-if="requestFinished">
-        <div>
-            <h4>Preview</h4>
+    <div v-if="requestFinished" class="container">
+        <div class="section has-text-centered">
             <video controls v-if="previewExist" :src="preview"></video>
-            <h4>{{ hasAudio }}</h4>
+            <h4 id="hasAudio">{{ hasAudio }}</h4>
+            <hr />
         </div>
 
-        <div>
+        <div class="section less-padding">
             <InfoFilter @filterQuality="filterQuality" />
             <InfoDownload
                 :videos="videos"
@@ -94,3 +94,15 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="sass" scoped>
+#hasAudio
+    font-size: 2rem
+
+video
+    max-height: 50vh
+    max-width: 80vw
+
+.less-padding
+    padding-top: 0px
+</style>

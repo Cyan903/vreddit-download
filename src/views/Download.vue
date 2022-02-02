@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h2>
-            Viewing info for <b>/r/{{ sub }}/{{ postid }}</b>
-        </h2>
+    <div class="container">
+        <div class="has-text-centered">
+            <h2>
+                Viewing info for <b>/r/{{ sub }}/{{ postid }}</b>
+            </h2>
+        </div>
 
         <Error
             v-if="requestError"

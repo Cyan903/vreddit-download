@@ -1,25 +1,36 @@
 <template>
-    <ul>
-        <li v-for="quality in videos" :key="quality.url">
-            <div v-if="quality.width"><b>Width: </b>{{ quality.width }}</div>
-            <div v-if="quality.height"><b>Height: </b>{{ quality.height }}</div>
-            <div v-if="quality.framerate">
-                <b>Framerate: </b>{{ quality.framerate }}
-            </div>
-            <div>
-                <Button
-                    :title="`Download (${quality.width}x${quality.height})`"
-                    @click="download(quality)"
-                />
-            </div>
-            <div>
-                <Button
-                    @click="setPreview(quality.url)"
-                    title="Preview (no audio)"
-                />
-            </div>
-        </li>
-    </ul>
+    <div class="container grid">
+        <div v-for="quality in videos" :key="quality.url">
+            <table class="table">
+                <tr v-if="quality.width">
+                    <td>Width</td>
+                    <td>{{ quality.width }}</td>
+                </tr>
+                <tr v-if="quality.height">
+                    <td>Height</td>
+                    <td>{{ quality.height }}</td>
+                </tr>
+                <tr v-if="quality.framerate">
+                    <td>Framerate</td>
+                    <td>{{ quality.framerate }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button
+                            :title="`Download (${quality.width}x${quality.height})`"
+                            @click="download(quality)"
+                        />
+                    </td>
+                    <td>
+                        <Button
+                            @click="setPreview(quality.url)"
+                            title="Preview (no audio)"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -55,3 +66,13 @@ export default defineComponent({
     },
 });
 </script>
+
+<style lang="sass" scoped>
+.grid
+    display: flex
+    flex-wrap: wrap
+
+.grid table
+    border: 1px solid #dbdbdb
+    margin: 5px
+</style>

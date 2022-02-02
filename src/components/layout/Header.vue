@@ -32,13 +32,22 @@
                     <a class="navbar-link">Github</a>
 
                     <div class="navbar-dropdown">
-                        <a :href="config.frontend" class="navbar-item"
+                        <a
+                            :href="config.frontend"
+                            target="_blank"
+                            class="navbar-item"
                             >Frontend</a
                         >
-                        <a :href="config.api" class="navbar-item">API</a>
+                        <a
+                            :href="config.api"
+                            target="_blank"
+                            class="navbar-item"
+                            >API</a
+                        >
                         <hr class="navbar-divider" />
                         <a
                             href="https://github.com/ffmpegwasm/ffmpeg.wasm"
+                            target="_blank"
                             class="navbar-item"
                             >ffmpeg.wasm</a
                         >
@@ -52,7 +61,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import config from "@/config.json";
-
 export default defineComponent({
     name: "Header",
     data() {
